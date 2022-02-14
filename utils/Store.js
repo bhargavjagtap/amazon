@@ -19,10 +19,11 @@ function reducer(state, action) {
             {
                 const newItem = action.payload;
                 const existItem = state.cart.cartItems.find((item) => item.name === newItem.name);
-
+                
                 const cartItem = existItem
                 ? state.cart.cartItems.map((item) => item.name === existItem.name ? newItem : item)
                 : {...state, cart:{...state.cart, cartItems}};
+                return {...state, cart:{...state.cart, cartItems}};
             };
         default:
         return state;
